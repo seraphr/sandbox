@@ -11,7 +11,7 @@ trait CalcSystem {
     }
   }
 
-  def system[_T <: Calculator](implicit ev: _T): Calculator = implicitly[Calculator]
+  def system[_T <: Calculator](implicit ev: _T): _T = ev
 }
 
 trait ShowCalcSystem extends CalcSystem {

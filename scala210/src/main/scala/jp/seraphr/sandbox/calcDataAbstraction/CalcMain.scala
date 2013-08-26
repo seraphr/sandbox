@@ -33,12 +33,12 @@ object CalcMain {
   def DoubleAddTest = {
     println("DoubleAddable")
     import DoubleAddSystem._
-
-    val tAddIntValues = DoubleAddCalculator.create((10, 12)).get
+    
+    val tAddIntValues = system[DoubleAdd].create((10, 12)).get
     typed[Double](tAddIntValues)
     println(s"10 + 12 = ${tAddIntValues}")
 
-    val tAddDoubleValues = DoubleAddCalculator.create((10.5, 12.5)).get
+    val tAddDoubleValues = system[DoubleAdd].create((10.5, 12.5)).get
     typed[Double](tAddDoubleValues)
     println(s"10.5 + 12.5 = ${tAddDoubleValues}")
   }
