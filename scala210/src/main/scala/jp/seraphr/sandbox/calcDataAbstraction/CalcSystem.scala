@@ -16,7 +16,7 @@ trait CalcSystem {
 
 trait ShowCalcSystem extends CalcSystem {
   type Show = ShowCalculator.type
-  
+
   implicit object ShowCalculator extends Calculator {
     trait Showable[-_T] {
       def as(a: _T): String
@@ -36,7 +36,7 @@ trait ShowCalcSystem extends CalcSystem {
 
 trait IntAddCalcSystem extends CalcSystem {
   type IntAdd = IntAddCalculator.type
-  
+
   implicit object IntAddCalculator extends Calculator {
     trait IntAddable[-_T] {
       def asInt(a: _T): (Int, Int)
@@ -57,12 +57,14 @@ trait IntAddCalcSystem extends CalcSystem {
 }
 
 trait DoubleAddCalcSystem extends CalcSystem {
-  type DoubleAdd = DoubleAddCalculator.type
-  
-  implicit object DoubleAddCalculator extends Calculator {
-    trait DoubleAddable[-_T] {
-      def asDouble(a: _T): (Double, Double)
-    }
+  type DoubleAdd = DoubleAddCalculator
+
+  implicit def n: DoubleAdd = new DoubleAddCalculator
+  trait DoubleAddable[-_T] {
+    def asDouble(a: _T): (Double, Double)
+  }
+
+  class DoubleAddCalculator extends Calculator {
 
     type Calcable[X] = DoubleAddable[X]
     type CalcResult = Double

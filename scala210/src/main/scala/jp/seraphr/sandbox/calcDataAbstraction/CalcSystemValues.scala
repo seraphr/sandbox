@@ -11,11 +11,19 @@ trait IntValueCalcSystem extends IntAddCalcSystem {
 }
 
 trait DoubleValueCalcSystem extends DoubleAddCalcSystem {
-  implicit object IntDoubleAddable extends DoubleAddCalculator.DoubleAddable[(Int, Int)] {
+//  implicit def IntDoubleAddable(implicit ev: DoubleAddCalculator): ev.DoubleAddable[(Int, Int)] = new ev.DoubleAddable[(Int, Int)]{
+//    override def asDouble(a: (Int, Int)) = (a._1.doubleValue(), a._2.doubleValue)
+//  }
+  
+  implicit object IntDoubleAddable extends DoubleAddable[(Int, Int)] {
     override def asDouble(a: (Int, Int)) = (a._1.doubleValue(), a._2.doubleValue)
   }
 
-  implicit object DoubleDoubleAddable extends DoubleAddCalculator.DoubleAddable[(Double, Double)] {
+//  implicit def DoubleDoubleAddable(implicit ev: DoubleAddCalculator): ev.DoubleAddable[(Double, Double)] = new ev.DoubleAddable[(Double, Double)]{
+//    override def asDouble(a: (Double, Double)) = a
+//  }
+  
+  implicit object DoubleDoubleAddable extends DoubleAddable[(Double, Double)] {
     override def asDouble(a: (Double, Double)) = a
   }
 }

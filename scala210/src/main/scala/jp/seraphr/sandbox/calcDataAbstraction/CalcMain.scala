@@ -56,13 +56,11 @@ object CalcMain {
     typed[Int](tAddDoubleValuesAsInt)
     println(s"10.5 + 12.5 = ${tAddDoubleValuesAsInt}")
 
-    val tDoubleAddCalculator = IntDoubleAddSystem.DoubleAddCalculator
-
-    val tAddIntValuesAsDouble = DoubleAddCalculator.create((10, 12)).get
+    val tAddIntValuesAsDouble = system[DoubleAdd].create((10, 12)).get
     typed[Double](tAddIntValuesAsDouble)
     println(s"10 + 12 = ${tAddIntValuesAsDouble}")
 
-    val tAddDoubleValuesAsDouble = DoubleAddCalculator.create((10.5, 12.5)).get
+    val tAddDoubleValuesAsDouble = system[DoubleAdd].create((10.5, 12.5)).get
     typed[Double](tAddDoubleValuesAsDouble)
     println(s"10.5 + 12.5 = ${tAddDoubleValuesAsDouble}")
 
