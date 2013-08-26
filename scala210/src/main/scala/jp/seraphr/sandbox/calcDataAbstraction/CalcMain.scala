@@ -3,7 +3,7 @@ package jp.seraphr.sandbox.calcDataAbstraction
 object CalcMain {
   object IntAddSystem extends IntValueCalcSystem
   object DoubleAddSystem extends DoubleValueCalcSystem
-  object IntDoubleAddSystem extends IntValueCalcSystem with DoubleValueCalcSystem
+  object IntDoubleAddSystem extends IntValueCalcSystem with DoubleValueCalcSystem with AnyShowCalcSystem
 
   def main(args: Array[String]): Unit = {
     IntAddTest
@@ -17,56 +17,58 @@ object CalcMain {
 
   def IntAddTest = {
     println("IntAddable")
+    import IntAddSystem._
 
     val tIntAddCalculator = IntAddSystem.IntAddCalculator
 
-    val tAddIntValues = tIntAddCalculator.calc(10, 12)
+    val tAddIntValues = IntAddCalculator.create((10, 12)).get
     typed[Int](tAddIntValues)
     println(s"10 + 12 = ${tAddIntValues}")
 
-    val tAddDoubleValues = tIntAddCalculator.calc(10.5, 12.5)
+    val tAddDoubleValues = IntAddCalculator.create((10.5, 12.5)).get
     typed[Int](tAddDoubleValues)
     println(s"10.5 + 12.5 = ${tAddDoubleValues}")
   }
 
   def DoubleAddTest = {
     println("DoubleAddable")
-    val tDoubleAddCalculator = DoubleAddSystem.DoubleAddCalculator
+    import DoubleAddSystem._
 
-    val tAddIntValues = tDoubleAddCalculator.calc(10, 12)
+    val tAddIntValues = DoubleAddCalculator.create((10, 12)).get
     typed[Double](tAddIntValues)
     println(s"10 + 12 = ${tAddIntValues}")
 
-    val tAddDoubleValues = tDoubleAddCalculator.calc(10.5, 12.5)
+    val tAddDoubleValues = DoubleAddCalculator.create((10.5, 12.5)).get
     typed[Double](tAddDoubleValues)
     println(s"10.5 + 12.5 = ${tAddDoubleValues}")
   }
 
-  def IntDoubleTest{
+  def IntDoubleTest {
     println("IntDoubleAddable")
 
-    val tIntAddCalculator = IntDoubleAddSystem.IntAddCalculator
+    import IntDoubleAddSystem._
 
-    val tAddIntValuesAsInt = tIntAddCalculator.calc(10, 12)
+    val tAddIntValuesAsInt = IntAddCalculator.create((10, 12)).get
     typed[Int](tAddIntValuesAsInt)
     println(s"10 + 12 = ${tAddIntValuesAsInt}")
 
-    val tAddDoubleValuesAsInt = tIntAddCalculator.calc(10.5, 12.5)
+    val tAddDoubleValuesAsInt = IntAddCalculator.create((10.5, 12.5)).get
     typed[Int](tAddDoubleValuesAsInt)
     println(s"10.5 + 12.5 = ${tAddDoubleValuesAsInt}")
 
+    val tDoubleAddCalculator = IntDoubleAddSystem.DoubleAddCalculator
 
-
-    val tDoubleAddCalculator = DoubleAddSystem.DoubleAddCalculator
-
-    val tAddIntValuesAsDouble = tDoubleAddCalculator.calc(10, 12)
+    val tAddIntValuesAsDouble = DoubleAddCalculator.create((10, 12)).get
     typed[Double](tAddIntValuesAsDouble)
     println(s"10 + 12 = ${tAddIntValuesAsDouble}")
 
-    val tAddDoubleValuesAsDouble = tDoubleAddCalculator.calc(10.5, 12.5)
+    val tAddDoubleValuesAsDouble = DoubleAddCalculator.create((10.5, 12.5)).get
     typed[Double](tAddDoubleValuesAsDouble)
     println(s"10.5 + 12.5 = ${tAddDoubleValuesAsDouble}")
 
+    val tAddStringValuesAsDouble = ShowCalculator.create(List(1, 2, 3)).get
+    typed[String](tAddStringValuesAsDouble)
+    println(s"List(1,2,3) = ${tAddStringValuesAsDouble}")
   }
 
 }
