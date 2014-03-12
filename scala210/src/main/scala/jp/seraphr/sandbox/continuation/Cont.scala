@@ -1,6 +1,8 @@
 package jp.seraphr.sandbox.continuation
 
-case class Cont[R, A](run: (A => R) => R) {
+import scala.annotation.tailrec
+
+case class Cont[R, +A](run: (A => R) => R) {
   def flatMap[B](f: A => Cont[R, B]): Cont[R, B] = Cont {
     newRun => this.run(a => f(a).run(newRun))
   }
