@@ -1,3 +1,5 @@
+packSettings
+
 name := "sandbox-scala210"
 
 version := "0.0.1"
@@ -14,3 +16,4 @@ EclipseKeys.withSource := true
 
 EclipseKeys.createSrc := EclipseCreateSrc.Default + EclipseCreateSrc.Resource
 
+packMain := Map("stacklessCont" -> "jp.seraphr.sandbox.continuation.StacklessContMain")
