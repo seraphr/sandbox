@@ -5,7 +5,7 @@ import scala.annotation.tailrec
 import jp.seraphr.sandbox.free.FreeM
 
 object ContTest {
-  import StacklessCont._
+  import FreeCont._
 
   val mRandom = new Random
 

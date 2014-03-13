@@ -13,6 +13,12 @@ object Functor {
 
     override def map[A, B](m: F[A])(f: A => B): F[B] = m.map(f)
   }
+  
+  implicit object Function0IsFunctor extends Functor[Function0]{
+    type F[X] = Function0[X]
+    
+    override def map[A, B](m: F[A])(f: A => B): F[B] = () => f(m())
+  }
 }
 
 object FreeM {

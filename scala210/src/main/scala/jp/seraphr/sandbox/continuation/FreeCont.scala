@@ -5,7 +5,7 @@ import jp.seraphr.sandbox.free.Free
 import jp.seraphr.sandbox.free.Pure
 import scala.annotation.tailrec
 
-object StacklessCont {
+object FreeCont {
   type _Cont[R, A] = FreeM[({ type F[+X] = Cont[R, X] })#F, A]
   type _Pure[R, A] = Pure[({ type F[+X] = Cont[R, X] })#F, A]
   type _Free[R, A] = Free[({ type F[+X] = Cont[R, X] })#F, A]
@@ -24,4 +24,4 @@ object StacklessCont {
   }
 }
 
-case class StacklessCont[R, +A](run: (A => R) => R)
+case class FreeCont[R, +A](run: (A => R) => R)
