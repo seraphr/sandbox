@@ -1,0 +1,19 @@
+*.class
+*.log
+
+# sbt specific
+.history
+target/
+lib_managed/
+src_managed/
+project/boot/
+project/plugins/project/
+
+
+# IntelliJ IDEA specific
+.idea/
+.idea_modules/
+
+# vscode specific
+.dotty-ide-artifact
+.dotty-ide.json
