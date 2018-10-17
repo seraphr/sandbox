@@ -17,6 +17,8 @@ object RunTableDSL {
         cell("1-3")
       }
 
+      // cell("aa") // rowの外でcellを呼ぶとコンパイルエラー
+
       row {
         cell("2-1")
         cell("2-2")
