@@ -9,6 +9,5 @@ object EarlyInitializers {
     val a: String
     val b = a // 普通に継承すると、bがnullになる！
   }
-  // class C extends {val a = "hoge"} with A
-
+  // class C extends { val a = "hoge"} with A
 }

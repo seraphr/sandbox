@@ -1,6 +1,7 @@
 package jp.seraphr.sandbox.dotty
 
 object TypeLambdas {
+  type Map0[K, V] = Map[K, V]
   type Map1 = [K, V] => Map[K, V]
   type Map2[K] = [V] => Map[K, V]
   type Map3 = [K] => [V] => Map[K, V]

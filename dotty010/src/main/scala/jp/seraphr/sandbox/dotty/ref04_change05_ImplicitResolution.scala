@@ -26,7 +26,6 @@ object ImplicitResolution {
 
     // implicitly[C]
 
-
     // 上記の影響で、「Aが失敗したらBが成功する」というのが実現できなくなったためか、Notが導入
     // らしいが、scala2でうまく行って、dottyでうまく行かない、具体例が作れなかった…
     implicitly[scala.implicits.Not[C]]

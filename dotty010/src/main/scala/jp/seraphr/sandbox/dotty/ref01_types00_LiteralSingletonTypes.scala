@@ -4,7 +4,7 @@ package jp.seraphr.sandbox.dotty
 // http://dotty.epfl.ch/docs/reference/singleton-types.html
 object LiteralSingletonTypes {
   val t: 42 = 42
-  val x: "Jedi" = "Jedi"
+  var x: "Jedi" = "Jedi"
 
   trait Mat[N <: Singleton, M <: Singleton] {
     def add(aThat: Mat[N, M]): Mat[N, M]

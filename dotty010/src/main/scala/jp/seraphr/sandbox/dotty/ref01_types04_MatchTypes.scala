@@ -6,6 +6,12 @@ object MatchTypes {
     case Array[t] => t
     case Iterable[t] => t
   }
+  type Elem2[X <: Number] = X match {
+    case Integer => Char
+  }
+
+  type A = Elem2[Integer]
+  val a: A = 'a'
 
   //  Elem[String]       =:=  Char
   //  Elem[Array[Int]]   =:=  Int

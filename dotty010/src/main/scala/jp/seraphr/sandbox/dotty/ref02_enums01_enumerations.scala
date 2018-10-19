@@ -6,7 +6,7 @@ object Enums {
   }
 
   // 大体以下と同じ
-  trait Color2
+  sealed trait Color2
   object Color2 {
     case object Red extends Color2
     case object Green extends Color2

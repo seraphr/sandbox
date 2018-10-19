@@ -5,7 +5,7 @@ object ErasedTerms {
   trait OFF
 
   case class Switch[S]() {
-    def on(implicit erased ev: S =:= OFF) = Switch[ON]()
+    def on(implicit erased ev: =:=[S, OFF]) = Switch[ON]()
     def off(implicit erased ev: S =:= ON) = Switch[OFF]()
   }
 

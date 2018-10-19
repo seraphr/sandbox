@@ -5,7 +5,7 @@ object TraitParameters {
     def msg = s"How are you, $name"
   }
 
-  class C extends Greeting("Bob") {
+  class C(val s: String) extends Greeting(s) {
     println(msg)
   }
 }

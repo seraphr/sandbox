@@ -1,6 +1,14 @@
 package jp.seraphr.sandbox.dotty
 
 object AutoApplication {
+  val m1: Unit = ???
+  def m2: Unit = ???
+  def m3(): Unit = ???
+
+  // => Unit
+  // () => Unit
+  // (Unit) => Unit
+
   def method() = ()
   // val t = method // コンパイルエラー
 
