@@ -6,6 +6,7 @@ object StructuralTypes {
   // implicit に Selectable が見えていないと、コンパイルエラーになります。
   import scala.reflect.Selectable.reflectiveSelectable
 
+  // Selectableは以下のような型
   // trait Selectable extends Any {
   //   def selectDynamic(name: String): Any
   //   def selectDynamicMethod(name: String, paramClasses: ClassTag[_]*): Any =

@@ -14,6 +14,7 @@ object MetaPrograming {
     tTrue || false
   }
   
+  // クォートの外では、メタな世界から実行時の世界に持ってこれない
   // splice outside quotes or inline method
   // val tBool = ~tBooleanExpr
   // type Bool = ~tBooleanType

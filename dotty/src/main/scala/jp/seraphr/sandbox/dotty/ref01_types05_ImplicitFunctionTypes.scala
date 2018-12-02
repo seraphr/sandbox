@@ -2,9 +2,13 @@ package jp.seraphr.sandbox.dotty
 
 object ImplicitFunctionTypes {
   type ImplicitFunc = implicit String => Int
-  def m(implicit s: String): Int = ???
-
+  
   def method(f: ImplicitFunc): Int = f("hoge")
+
+  val result = method {
+    // 暗黙的に、"hoge"が渡ってきている
+    implicitly[String].length
+  }
 }
 
 object RunTableDSL {

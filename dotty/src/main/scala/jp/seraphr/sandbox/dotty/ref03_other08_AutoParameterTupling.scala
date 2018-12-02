@@ -12,6 +12,8 @@ object AutoParameterTupling {
     (l, r) => l + r
   }
   val tNew2 = tList.map(_ + _)
+
+  // こちらは駄目
   // val f: (Int, Int) => Int = _ + _
   // tList.map(f)
 }

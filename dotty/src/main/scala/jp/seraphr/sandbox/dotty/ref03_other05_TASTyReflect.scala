@@ -8,7 +8,7 @@ object TastyReflect {
 
   def natConstImpl(x: Expr[Int])(implicit reflection: Reflection): Expr[Int] = {
     import reflection._
-    // ドキュメント状は unseal になっている。 最近のコミット( 1af9030c8a01727d )で unseal になったっぽい
+    // ドキュメント上は unseal になっている。 最近のコミット( 1af9030c8a01727d )で unseal になったっぽい
     val xTree: Term = x.reflect
     xTree match {
       case Term.Literal(Constant.Int(n)) =>

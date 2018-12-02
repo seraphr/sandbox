@@ -1,7 +1,7 @@
 package jp.seraphr.sandbox.dotty
 
 object ClassShadowing {
-  // super type と同名の型を定義できなくなった
+  // super type内で定義されているのと同名の型を定義できなくなりました
 
   trait Super {
     class A

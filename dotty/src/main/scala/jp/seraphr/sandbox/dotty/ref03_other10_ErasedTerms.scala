@@ -13,6 +13,7 @@ object ErasedTerms {
     .on
     .off
     
+  // コンパイル結果は以下のように evが消えている
   // ErasedTerms.Switch..MODULE$.apply().on().off();
 
   // erased 無しだと

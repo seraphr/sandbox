@@ -26,15 +26,10 @@ object InlinePow {
 
   def expr = "10.0".toDouble
   val pow10_10 = power(expr, 10)
+  // 以下のようなコードにコンパイルされる
   // double x = expr();
   // double y = x;
   // double y = y * y;
   // double y = y * y * x;
   // this.pow10_10 = (y * y);
-
-  val pow10_10_2 = power(10, 10)
-  // double y = 10.0D;
-  // double y = y * y;
-  // double y = y * y * 10.0D;
-  // this.pow10_10_2 = (y * y);
 }
