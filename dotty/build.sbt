@@ -9,5 +9,6 @@ lazy val root = project
     scalaVersion := dottyVersion,
     scalacOptions += "-Ykind-polymorphism",
 
-    libraryDependencies += "com.novocode" % "junit-interface" % "0.11" % "test"
+    libraryDependencies += "com.novocode" % "junit-interface" % "0.11" % "test",
+    libraryDependencies += "ch.epfl.lamp" % "dotty-compiler_0.11" % "0.11.0-RC1"
   )
